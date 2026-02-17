@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moodful Loaders — The Weight of Waiting</title>
+    <meta name="description" content="Twenty-four hours. Twenty-four moods. Twenty-four ways loading can feel human.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <nav class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-track">
+            <div class="scroll-dot" data-section="0"></div>
+            <div class="scroll-dot" data-section="1"></div>
+            <div class="scroll-dot" data-section="2"></div>
+            <div class="scroll-dot" data-section="3"></div>
+            <div class="scroll-dot" data-section="4"></div>
+            <div class="scroll-dot" data-section="5"></div>
+            <div class="scroll-dot" data-section="6"></div>
+            <div class="scroll-dot" data-section="7"></div>
+            <div class="scroll-dot" data-section="8"></div>
+            <div class="scroll-dot" data-section="9"></div>
+            <div class="scroll-dot" data-section="10"></div>
+            <div class="scroll-dot" data-section="11"></div>
+            <div class="scroll-dot" data-section="12"></div>
+            <div class="scroll-dot" data-section="13"></div>
+            <div class="scroll-dot" data-section="14"></div>
+            <div class="scroll-dot" data-section="15"></div>
+            <div class="scroll-dot" data-section="16"></div>
+            <div class="scroll-dot" data-section="17"></div>
+            <div class="scroll-dot" data-section="18"></div>
+            <div class="scroll-dot" data-section="19"></div>
+            <div class="scroll-dot" data-section="20"></div>
+            <div class="scroll-dot" data-section="21"></div>
+            <div class="scroll-dot" data-section="22"></div>
+            <div class="scroll-dot" data-section="23"></div>
+        </div>
+    </nav>
+
+    <main class="page-container">
+        <!-- Hero Section -->
+        <section class="hero" data-section="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">The <span class="weight-bold">Weight</span> of Waiting</h1>
+                <p class="hero-subtitle">Twenty-four hours. Twenty-four moods. Twenty-four ways loading can feel human.</p>
+                <div class="scroll-cue" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: PATIENCE — The Meditator -->
+        <section class="mood-section" data-section="0" data-mood="patience" style="--bg-color: #0d0d0d;">
+            <span class="mood-label">Patience</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="100" cy="80" r="25"/>
+                        <path d="M90 78 Q93 82 96 78"/>
+                        <path d="M104 78 Q107 82 110 78"/>
+                        <path d="M95 90 Q100 93 105 90"/>
+                        <path d="M100 105 L100 170"/>
+                        <path d="M70 220 Q85 200 100 210 Q115 200 130 220"/>
+                        <path d="M60 240 L80 220 Q100 230 120 220 L140 240"/>
+                        <path d="M100 130 Q70 150 65 200"/>
+                        <path d="M100 130 Q130 150 135 200"/>
+                        <circle cx="65" cy="205" r="8"/>
+                        <circle cx="135" cy="205" r="8"/>
+                        <path d="M50 80 Q45 60 55 45" opacity="0.3"/>
+                        <path d="M150 80 Q155 60 145 45" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-patience" aria-hidden="true">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="breathing-ring" cx="50" cy="50" r="40"/>
+                        </svg>
+                    </div>
+                    <p class="mood-copy">"Good things breathe."</p>
+                </div>
+            </div>
+            <span class="section-number">01</span>
+        </section>
+
+        <!-- Section 2: ANTICIPATION — The Watcher -->
+        <section class="mood-section" data-section="1" data-mood="anticipation" style="--bg-color: #1a1a1a;">
+            <span class="mood-label">Anticipation</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="40" y="40" width="120" height="180" stroke-width="2"/>
+                        <line x1="100" y1="40" x2="100" y2="220"/>
+                        <line x1="40" y1="130" x2="160" y2="130"/>
+                        <ellipse cx="95" cy="120" rx="20" ry="22"/>
+                        <circle cx="88" cy="117" r="3" fill="#ffffff"/>
+                        <circle cx="102" cy="117" r="3" fill="#ffffff"/>
+                        <path d="M95 142 Q90 170 85 200"/>
+                        <path d="M95 145 Q110 140 120 130"/>
+                        <path d="M120 130 L125 125 M120 130 L127 130 M120 130 L125 135 M120 130 L118 125 M120 130 L117 133"/>
+                        <path d="M90 155 Q70 170 65 190"/>
+                        <path d="M85 200 L75 260"/>
+                        <path d="M85 200 L95 260"/>
+                        <path d="M75 260 L65 265"/>
+                        <path d="M95 260 L105 265"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-anticipation" aria-hidden="true">
+                        <span class="bounce-dot"></span>
+                        <span class="bounce-dot"></span>
+                        <span class="bounce-dot"></span>
+                    </div>
+                    <p class="mood-copy">"Almost. Almost. Almost."</p>
+                </div>
+            </div>
+            <span class="section-number">02</span>
+        </section>
+
+        <!-- Section 3: CURIOSITY — The Explorer -->
+        <section class="mood-section" data-section="2" data-mood="curiosity" style="--bg-color: #111111;">
+            <span class="mood-label">Curiosity</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="130" y1="30" x2="130" y2="280" stroke-width="2"/>
+                        <circle cx="105" cy="100" r="22"/>
+                        <circle cx="98" cy="96" r="5"/>
+                        <circle cx="112" cy="96" r="5"/>
+                        <circle cx="99" cy="95" r="2" fill="#ffffff"/>
+                        <circle cx="113" cy="95" r="2" fill="#ffffff"/>
+                        <path d="M93 88 Q98 85 103 88"/>
+                        <path d="M107 88 Q112 85 117 88"/>
+                        <circle cx="105" cy="110" r="3"/>
+                        <path d="M105 122 L105 180"/>
+                        <path d="M105 140 Q120 135 130 130"/>
+                        <path d="M130 125 L130 145" stroke-width="2"/>
+                        <path d="M127 128 L133 128"/>
+                        <path d="M127 133 L133 133"/>
+                        <path d="M127 138 L133 138"/>
+                        <path d="M127 143 L133 143"/>
+                        <path d="M100 145 Q80 160 75 190"/>
+                        <path d="M105 180 L95 250"/>
+                        <path d="M105 180 L115 250"/>
+                        <path d="M95 250 L90 260"/>
+                        <path d="M115 250 L115 265"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-curiosity" aria-hidden="true">
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="42" cy="42" r="25" fill="none"/>
+                            <line x1="60" y1="60" x2="80" y2="80" stroke-width="4"/>
+                        </svg>
+                    </div>
+                    <p class="mood-copy">"Looking under every stone."</p>
+                </div>
+            </div>
+            <span class="section-number">03</span>
+        </section>
+
+        <!-- Section 4: BOREDOM — The Sloucher -->
+        <section class="mood-section" data-section="3" data-mood="boredom" style="--bg-color: #0f0f0f;">
+            <span class="mood-label">Boredom</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M50 180 L50 260 M150 180 L150 260"/>
+                        <path d="M45 180 L155 180"/>
+                        <path d="M50 180 L50 120 Q50 100 70 100 L130 100 Q150 100 150 120 L150 180"/>
+                        <ellipse cx="100" cy="130" rx="20" ry="18" transform="rotate(15 100 130)"/>
+                        <path d="M92 128 L100 130"/>
+                        <path d="M108 132 L116 134"/>
+                        <path d="M98 140 Q103 138 108 140"/>
+                        <path d="M100 148 Q95 170 90 200"/>
+                        <path d="M95 160 Q60 180 45 220"/>
+                        <path d="M45 220 L42 230 M45 220 L48 228"/>
+                        <path d="M92 165 Q110 180 120 200"/>
+                        <path d="M90 200 Q85 230 80 260"/>
+                        <path d="M90 200 Q100 230 110 260"/>
+                        <path d="M80 260 L70 265"/>
+                        <path d="M110 260 L120 265"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-boredom" aria-hidden="true">
+                        <div class="sisyphean-bar">
+                            <div class="sisyphean-fill"></div>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"Still here. Still waiting."</p>
+                </div>
+            </div>
+            <span class="section-number">04</span>
+        </section>
+
+        <!-- Section 5: TRUST — The Builder -->
+        <section class="mood-section" data-section="4" data-mood="trust" style="--bg-color: #141414;">
+            <span class="mood-label">Trust</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="40" y="220" width="35" height="35"/>
+                        <rect x="80" y="220" width="35" height="35"/>
+                        <rect x="120" y="220" width="35" height="35"/>
+                        <rect x="160" y="220" width="35" height="35" stroke-dasharray="4 2"/>
+                        <circle cx="70" cy="140" r="22"/>
+                        <circle cx="75" cy="138" r="3" fill="#ffffff"/>
+                        <circle cx="85" cy="138" r="2"/>
+                        <path d="M72 150 L82 150"/>
+                        <path d="M70 162 L70 220"/>
+                        <path d="M70 180 Q90 170 120 175"/>
+                        <path d="M70 180 Q95 190 120 195"/>
+                        <circle cx="118" cy="175" r="5"/>
+                        <circle cx="118" cy="195" r="5"/>
+                        <path d="M70 220 Q60 235 50 250"/>
+                        <path d="M70 220 Q80 235 90 250"/>
+                        <path d="M50 250 L45 260"/>
+                        <path d="M90 250 L95 260"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-trust" aria-hidden="true">
+                        <div class="stacking-blocks">
+                            <div class="block block-1"></div>
+                            <div class="block block-2"></div>
+                            <div class="block block-3"></div>
+                            <div class="block block-4"></div>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"Laying the foundation."</p>
+                </div>
+            </div>
+            <span class="section-number">05</span>
+        </section>
+
+        <!-- Section 6: ANXIETY — The Pacer -->
+        <section class="mood-section" data-section="5" data-mood="anxiety" style="--bg-color: #181818;">
+            <span class="mood-label">Anxiety</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="100" cy="70" r="22"/>
+                        <path d="M92 65 L98 68"/>
+                        <path d="M102 68 L108 65"/>
+                        <circle cx="95" cy="70" r="2" fill="#ffffff"/>
+                        <circle cx="105" cy="70" r="2" fill="#ffffff"/>
+                        <path d="M95 82 Q100 80 105 82"/>
+                        <path d="M100 92 Q98 130 95 170"/>
+                        <path d="M98 120 Q80 130 75 150 Q78 170 95 175"/>
+                        <path d="M98 120 Q85 135 82 155"/>
+                        <circle cx="88" cy="172" r="8"/>
+                        <path d="M95 170 L70 240"/>
+                        <path d="M95 170 L120 235"/>
+                        <path d="M70 240 L60 245"/>
+                        <path d="M120 235 L130 232"/>
+                        <path d="M140 100 L150 100" opacity="0.4"/>
+                        <path d="M145 120 L155 120" opacity="0.3"/>
+                        <path d="M140 140 L150 140" opacity="0.2"/>
+                        <path d="M125 50 Q135 45 130 35 Q125 25 135 20" opacity="0.5"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-anxiety" aria-hidden="true">
+                        <span class="jittery-cursor"></span>
+                    </div>
+                    <p class="mood-copy">"Running every scenario."</p>
+                </div>
+            </div>
+            <span class="section-number">06</span>
+        </section>
+
+        <!-- Section 7: WONDER — The Dreamer -->
+        <section class="mood-section" data-section="6" data-mood="wonder" style="--bg-color: #0e0e0e;">
+            <span class="mood-label">Wonder</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 220 L180 220" opacity="0.3"/>
+                        <circle cx="50" cy="200" r="20"/>
+                        <circle cx="45" cy="195" r="4"/>
+                        <circle cx="55" cy="195" r="4"/>
+                        <circle cx="44" cy="194" r="1.5" fill="#ffffff"/>
+                        <circle cx="54" cy="194" r="1.5" fill="#ffffff"/>
+                        <path d="M45 208 Q50 212 55 208"/>
+                        <path d="M70 200 L140 200"/>
+                        <path d="M80 200 Q75 180 60 170"/>
+                        <path d="M80 200 Q75 220 60 230"/>
+                        <path d="M60 170 L55 165 M60 170 L58 162 M60 170 L63 165"/>
+                        <path d="M60 230 L55 235 M60 230 L58 238 M60 230 L63 235"/>
+                        <path d="M140 200 L170 190"/>
+                        <path d="M140 200 L175 205"/>
+                        <path d="M170 190 L178 188"/>
+                        <path d="M175 205 L183 207"/>
+                        <circle cx="80" cy="100" r="5" opacity="0.6"/>
+                        <rect x="110" y="80" width="10" height="10" opacity="0.5" transform="rotate(15 115 85)"/>
+                        <polygon points="150,120 155,130 145,130" opacity="0.4"/>
+                        <circle cx="60" cy="130" r="3" opacity="0.5"/>
+                        <path d="M130 60 L135 70 L125 70 Z" opacity="0.3"/>
+                        <circle cx="170" cy="90" r="4" opacity="0.4"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-wonder" aria-hidden="true">
+                        <div class="particle-scatter">
+                            <span class="particle"></span>
+                            <span class="particle"></span>
+                            <span class="particle"></span>
+                            <span class="particle"></span>
+                            <span class="particle"></span>
+                            <span class="particle"></span>
+                            <span class="particle"></span>
+                            <span class="particle"></span>
+                            <span class="particle"></span>
+                            <span class="particle"></span>
+                            <span class="particle"></span>
+                            <span class="particle"></span>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"So much to discover."</p>
+                </div>
+            </div>
+            <span class="section-number">07</span>
+        </section>
+
+        <!-- Section 8: RELIEF — The Exhaler -->
+        <section class="mood-section" data-section="7" data-mood="relief" style="--bg-color: #131313;">
+            <span class="mood-label">Relief</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M60 250 L140 250" opacity="0.4"/>
+                        <circle cx="100" cy="90" r="22"/>
+                        <path d="M90 88 Q95 85 100 88"/>
+                        <path d="M100 88 Q105 85 110 88"/>
+                        <path d="M92 100 Q100 108 108 100"/>
+                        <path d="M100 112 Q105 150 100 190"/>
+                        <path d="M100 135 Q70 130 50 145"/>
+                        <path d="M100 135 Q130 130 150 145"/>
+                        <path d="M50 145 L45 140 M50 145 L43 147 M50 145 L47 152"/>
+                        <path d="M150 145 L155 140 M150 145 L157 147 M150 145 L153 152"/>
+                        <path d="M100 190 L80 250"/>
+                        <path d="M100 190 L120 250"/>
+                        <path d="M80 250 L70 255"/>
+                        <path d="M120 250 L130 255"/>
+                        <path d="M95 75 Q90 65 85 55" opacity="0.4"/>
+                        <path d="M100 73 Q100 60 100 50" opacity="0.5"/>
+                        <path d="M105 75 Q110 65 115 55" opacity="0.4"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-relief" aria-hidden="true">
+                        <svg viewBox="0 0 100 100">
+                            <path class="checkmark" d="M25 50 L42 67 L75 34" fill="none" stroke-width="6"/>
+                            <circle class="glow-ring" cx="50" cy="50" r="45" fill="none" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <p class="mood-copy">"Worth every second."</p>
+                </div>
+            </div>
+            <span class="section-number">08</span>
+        </section>
+
+        <!-- Section 9: FOCUS — The Archer -->
+        <section class="mood-section" data-section="8" data-mood="focus" style="--bg-color: #0a0a0a;">
+            <span class="mood-label">Focus</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="80" cy="80" r="20"/>
+                        <circle cx="75" cy="78" r="2" fill="#ffffff"/>
+                        <circle cx="85" cy="78" r="2" fill="#ffffff"/>
+                        <path d="M75 88 L85 88"/>
+                        <path d="M80 100 L80 160"/>
+                        <path d="M80 120 L40 100 L40 140"/>
+                        <path d="M80 130 L150 130"/>
+                        <line x1="150" y1="130" x2="180" y2="130" stroke-dasharray="3 3"/>
+                        <circle cx="180" cy="130" r="15" stroke-width="2"/>
+                        <circle cx="180" cy="130" r="8"/>
+                        <circle cx="180" cy="130" r="2" fill="#ffffff"/>
+                        <path d="M80 160 L65 240"/>
+                        <path d="M80 160 L95 240"/>
+                        <path d="M65 240 L55 245"/>
+                        <path d="M95 240 L105 245"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-focus" aria-hidden="true">
+                        <div class="netflix-spinner">
+                            <div class="spinner-arc"></div>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"Eyes on the target."</p>
+                </div>
+            </div>
+            <span class="section-number">09</span>
+        </section>
+
+        <!-- Section 10: DETERMINATION — The Climber -->
+        <section class="mood-section" data-section="9" data-mood="determination" style="--bg-color: #151515;">
+            <span class="mood-label">Determination</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M160 280 L140 40" stroke-width="2" opacity="0.5"/>
+                        <circle cx="120" cy="120" r="18"/>
+                        <circle cx="116" cy="118" r="2" fill="#ffffff"/>
+                        <circle cx="124" cy="118" r="2" fill="#ffffff"/>
+                        <path d="M116 128 L124 128"/>
+                        <path d="M120 138 L115 180"/>
+                        <path d="M118 150 L145 100"/>
+                        <path d="M145 100 L148 95 M145 100 L150 102"/>
+                        <path d="M117 155 L90 170"/>
+                        <path d="M115 180 L100 220"/>
+                        <path d="M115 180 L135 210"/>
+                        <path d="M100 220 L95 230"/>
+                        <path d="M135 210 L145 205"/>
+                        <circle cx="148" cy="97" r="4"/>
+                        <circle cx="92" cy="172" r="4"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-determination" aria-hidden="true">
+                        <div class="climbing-dots">
+                            <span class="climb-dot"></span>
+                            <span class="climb-dot"></span>
+                            <span class="climb-dot"></span>
+                            <span class="climb-dot"></span>
+                            <span class="climb-dot"></span>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"One step at a time."</p>
+                </div>
+            </div>
+            <span class="section-number">10</span>
+        </section>
+
+        <!-- Section 11: HOPE — The Seedling -->
+        <section class="mood-section" data-section="10" data-mood="hope" style="--bg-color: #0c0c0c;">
+            <span class="mood-label">Hope</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M30 250 L170 250" opacity="0.3"/>
+                        <circle cx="70" cy="180" r="20"/>
+                        <circle cx="65" cy="178" r="2" fill="#ffffff"/>
+                        <circle cx="75" cy="178" r="2" fill="#ffffff"/>
+                        <path d="M65 188 Q70 192 75 188"/>
+                        <path d="M70 200 L70 240"/>
+                        <path d="M70 210 L50 230"/>
+                        <path d="M70 220 Q90 210 100 180"/>
+                        <path d="M100 180 L100 120"/>
+                        <path d="M100 150 Q85 140 80 120" opacity="0.6"/>
+                        <path d="M100 140 Q115 130 120 110" opacity="0.6"/>
+                        <path d="M100 120 Q95 100 100 80"/>
+                        <ellipse cx="100" cy="70" rx="15" ry="20" opacity="0.5"/>
+                        <path d="M100 80 Q110 60 100 50"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-hope" aria-hidden="true">
+                        <div class="growing-line">
+                            <div class="grow-stem"></div>
+                            <div class="grow-leaf grow-leaf-1"></div>
+                            <div class="grow-leaf grow-leaf-2"></div>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"Something is growing."</p>
+                </div>
+            </div>
+            <span class="section-number">11</span>
+        </section>
+
+        <!-- Section 12: URGENCY — The Sprinter -->
+        <section class="mood-section" data-section="11" data-mood="urgency" style="--bg-color: #121212;">
+            <span class="mood-label">Urgency</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="130" cy="80" r="18"/>
+                        <circle cx="135" cy="78" r="2" fill="#ffffff"/>
+                        <path d="M128 88 L138 86"/>
+                        <path d="M130 98 Q140 130 130 160"/>
+                        <path d="M135 115 L170 100"/>
+                        <path d="M170 100 L180 95"/>
+                        <path d="M128 120 L90 140"/>
+                        <path d="M130 160 L170 200"/>
+                        <path d="M130 160 L80 190"/>
+                        <path d="M170 200 L175 220"/>
+                        <path d="M80 190 L60 200"/>
+                        <path d="M50 80 L70 80" opacity="0.3"/>
+                        <path d="M40 100 L65 100" opacity="0.25"/>
+                        <path d="M45 120 L70 120" opacity="0.2"/>
+                        <path d="M50 140 L70 140" opacity="0.15"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-urgency" aria-hidden="true">
+                        <div class="speed-bars">
+                            <span class="speed-bar"></span>
+                            <span class="speed-bar"></span>
+                            <span class="speed-bar"></span>
+                            <span class="speed-bar"></span>
+                            <span class="speed-bar"></span>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"No time to waste."</p>
+                </div>
+            </div>
+            <span class="section-number">12</span>
+        </section>
+
+        <!-- Section 13: SERENITY — The Floater -->
+        <section class="mood-section" data-section="12" data-mood="serenity" style="--bg-color: #0b0b0b;">
+            <span class="mood-label">Serenity</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M30 200 Q100 180 170 200" opacity="0.3"/>
+                        <ellipse cx="100" cy="160" rx="50" ry="15" opacity="0.2"/>
+                        <circle cx="100" cy="120" r="22"/>
+                        <path d="M92 118 Q97 115 102 118"/>
+                        <path d="M98 118 Q103 115 108 118"/>
+                        <path d="M95 130 Q100 133 105 130"/>
+                        <path d="M100 142 L100 155"/>
+                        <path d="M100 145 Q70 150 60 160"/>
+                        <path d="M100 145 Q130 150 140 160"/>
+                        <path d="M60 160 L55 165"/>
+                        <path d="M140 160 L145 165"/>
+                        <path d="M100 155 Q90 165 85 175"/>
+                        <path d="M100 155 Q110 165 115 175"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-serenity" aria-hidden="true">
+                        <div class="floating-orbs">
+                            <span class="orb"></span>
+                            <span class="orb"></span>
+                            <span class="orb"></span>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"Drifting in stillness."</p>
+                </div>
+            </div>
+            <span class="section-number">13</span>
+        </section>
+
+        <!-- Section 14: CONFUSION — The Lost -->
+        <section class="mood-section" data-section="13" data-mood="confusion" style="--bg-color: #161616;">
+            <span class="mood-label">Confusion</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="100" cy="100" r="22"/>
+                        <path d="M92 95 Q95 100 98 95"/>
+                        <path d="M102 95 Q105 100 108 95"/>
+                        <path d="M95 110 Q100 108 105 110"/>
+                        <path d="M85 70 Q90 55 100 60 Q110 55 115 70" opacity="0.6"/>
+                        <path d="M100 60 L100 50"/>
+                        <circle cx="100" cy="45" r="4"/>
+                        <path d="M100 122 L100 180"/>
+                        <path d="M100 140 Q80 150 70 145"/>
+                        <path d="M100 140 Q120 150 130 145"/>
+                        <path d="M100 180 L85 240"/>
+                        <path d="M100 180 L115 240"/>
+                        <path d="M60 180 L80 180" opacity="0.3"/>
+                        <path d="M120 180 L140 180" opacity="0.3"/>
+                        <path d="M60 180 L55 175 M60 180 L55 185"/>
+                        <path d="M140 180 L145 175 M140 180 L145 185"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-confusion" aria-hidden="true">
+                        <div class="maze-spinner">
+                            <svg viewBox="0 0 100 100">
+                                <path class="maze-path" d="M50 10 L50 30 L30 30 L30 50 L50 50 L50 70 L70 70 L70 50 L90 50" fill="none"/>
+                                <circle class="maze-dot" cx="50" cy="10" r="4" fill="#ffffff"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"Which way now?"</p>
+                </div>
+            </div>
+            <span class="section-number">14</span>
+        </section>
+
+        <!-- Section 15: EXCITEMENT — The Jumper -->
+        <section class="mood-section" data-section="14" data-mood="excitement" style="--bg-color: #0d0d0d;">
+            <span class="mood-label">Excitement</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="100" cy="70" r="20"/>
+                        <circle cx="94" cy="68" r="3" fill="#ffffff"/>
+                        <circle cx="106" cy="68" r="3" fill="#ffffff"/>
+                        <path d="M92 80 Q100 88 108 80"/>
+                        <path d="M100 90 L100 140"/>
+                        <path d="M100 100 L70 70"/>
+                        <path d="M100 100 L130 70"/>
+                        <path d="M70 70 L65 60 M70 70 L60 72"/>
+                        <path d="M130 70 L135 60 M130 70 L140 72"/>
+                        <path d="M100 140 L80 180"/>
+                        <path d="M100 140 L120 180"/>
+                        <path d="M80 180 L70 200"/>
+                        <path d="M120 180 L130 200"/>
+                        <path d="M85 50 L90 40" opacity="0.5"/>
+                        <path d="M115 50 L110 40" opacity="0.5"/>
+                        <path d="M100 45 L100 35" opacity="0.5"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-excitement" aria-hidden="true">
+                        <div class="burst-ring">
+                            <span class="burst"></span>
+                            <span class="burst"></span>
+                            <span class="burst"></span>
+                            <span class="burst"></span>
+                            <span class="burst"></span>
+                            <span class="burst"></span>
+                            <span class="burst"></span>
+                            <span class="burst"></span>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"Can't contain it!"</p>
+                </div>
+            </div>
+            <span class="section-number">15</span>
+        </section>
+
+        <!-- Section 16: MELANCHOLY — The Gazer -->
+        <section class="mood-section" data-section="15" data-mood="melancholy" style="--bg-color: #101010;">
+            <span class="mood-label">Melancholy</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="120" y="100" width="60" height="80" opacity="0.3"/>
+                        <circle cx="80" cy="130" r="22"/>
+                        <circle cx="85" cy="128" r="3"/>
+                        <circle cx="86" cy="127" r="1" fill="#ffffff"/>
+                        <path d="M75 142 Q80 140 85 142"/>
+                        <path d="M80 152 L80 200"/>
+                        <path d="M80 165 Q60 175 55 190"/>
+                        <path d="M80 165 Q100 160 110 150"/>
+                        <path d="M80 200 L70 260"/>
+                        <path d="M80 200 L90 260"/>
+                        <path d="M70 260 L65 265"/>
+                        <path d="M90 260 L95 265"/>
+                        <circle cx="150" cy="130" r="8" opacity="0.4"/>
+                        <path d="M145 145 L155 155" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-melancholy" aria-hidden="true">
+                        <div class="drip-loader">
+                            <span class="drip"></span>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"Time moves slowly here."</p>
+                </div>
+            </div>
+            <span class="section-number">16</span>
+        </section>
+
+        <!-- Section 17: PERSISTENCE — The Pusher -->
+        <section class="mood-section" data-section="16" data-mood="persistence" style="--bg-color: #131313;">
+            <span class="mood-label">Persistence</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="130" y="120" width="50" height="100" stroke-width="2"/>
+                        <circle cx="80" cy="140" r="20"/>
+                        <circle cx="85" cy="138" r="2" fill="#ffffff"/>
+                        <path d="M78 150 L88 150"/>
+                        <path d="M80 160 Q90 180 85 210"/>
+                        <path d="M85 175 L130 160"/>
+                        <path d="M85 175 L130 175"/>
+                        <circle cx="128" cy="162" r="5"/>
+                        <circle cx="128" cy="175" r="5"/>
+                        <path d="M85 210 L70 260"/>
+                        <path d="M85 210 L100 260"/>
+                        <path d="M70 260 L60 265"/>
+                        <path d="M100 260 L110 265"/>
+                        <path d="M140 125 L145 115" opacity="0.3"/>
+                        <path d="M155 125 L160 115" opacity="0.3"/>
+                        <path d="M170 125 L175 115" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-persistence" aria-hidden="true">
+                        <div class="push-bar">
+                            <div class="push-block"></div>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"Keep pushing."</p>
+                </div>
+            </div>
+            <span class="section-number">17</span>
+        </section>
+
+        <!-- Section 18: FLOW — The Dancer -->
+        <section class="mood-section" data-section="17" data-mood="flow" style="--bg-color: #0e0e0e;">
+            <span class="mood-label">Flow</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="100" cy="80" r="20"/>
+                        <path d="M94 78 Q97 82 100 78"/>
+                        <path d="M100 78 Q103 82 106 78"/>
+                        <path d="M95 88 Q100 92 105 88"/>
+                        <path d="M100 100 Q110 140 90 180"/>
+                        <path d="M100 120 Q140 110 160 130"/>
+                        <path d="M160 130 Q165 125 170 130"/>
+                        <path d="M98 130 Q60 150 50 130"/>
+                        <path d="M50 130 Q45 125 40 130"/>
+                        <path d="M90 180 Q70 200 80 240"/>
+                        <path d="M90 180 Q120 200 130 230"/>
+                        <path d="M80 240 L75 250"/>
+                        <path d="M130 230 L140 235"/>
+                        <path d="M60 100 Q50 110 55 120" opacity="0.3"/>
+                        <path d="M140 90 Q150 100 145 110" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-flow" aria-hidden="true">
+                        <div class="wave-loader">
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"In the rhythm."</p>
+                </div>
+            </div>
+            <span class="section-number">18</span>
+        </section>
+
+        <!-- Section 19: DOUBT — The Hesitant -->
+        <section class="mood-section" data-section="18" data-mood="doubt" style="--bg-color: #141414;">
+            <span class="mood-label">Doubt</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M100 250 L100 280" stroke-width="2"/>
+                        <path d="M80 250 L120 250" stroke-width="2"/>
+                        <circle cx="100" cy="100" r="22"/>
+                        <path d="M93 97 L99 100"/>
+                        <path d="M101 100 L107 97"/>
+                        <circle cx="96" cy="100" r="2" fill="#ffffff"/>
+                        <circle cx="104" cy="100" r="2" fill="#ffffff"/>
+                        <path d="M95 112 Q100 110 105 112"/>
+                        <path d="M100 122 L100 180"/>
+                        <path d="M100 140 Q85 145 80 160"/>
+                        <path d="M80 160 Q75 165 78 175"/>
+                        <path d="M100 145 Q115 150 120 165"/>
+                        <path d="M100 180 L90 230"/>
+                        <path d="M100 180 L110 230"/>
+                        <path d="M90 230 L90 250"/>
+                        <path d="M110 230 L110 250"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-doubt" aria-hidden="true">
+                        <div class="pendulum">
+                            <div class="pendulum-arm">
+                                <div class="pendulum-ball"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"Back and forth."</p>
+                </div>
+            </div>
+            <span class="section-number">19</span>
+        </section>
+
+        <!-- Section 20: RESOLVE — The Decider -->
+        <section class="mood-section" data-section="19" data-mood="resolve" style="--bg-color: #0f0f0f;">
+            <span class="mood-label">Resolve</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="100" cy="80" r="22"/>
+                        <circle cx="95" cy="78" r="3" fill="#ffffff"/>
+                        <circle cx="105" cy="78" r="3" fill="#ffffff"/>
+                        <path d="M93 90 L107 90"/>
+                        <path d="M100 102 L100 170"/>
+                        <path d="M100 120 L70 100"/>
+                        <path d="M70 100 L60 95"/>
+                        <path d="M100 130 L140 120"/>
+                        <path d="M140 120 L150 118"/>
+                        <path d="M100 170 L85 250"/>
+                        <path d="M100 170 L115 250"/>
+                        <path d="M85 250 L80 260"/>
+                        <path d="M115 250 L120 260"/>
+                        <path d="M100 55 L100 40" stroke-width="2"/>
+                        <path d="M90 45 L100 40 L110 45"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-resolve" aria-hidden="true">
+                        <div class="lock-loader">
+                            <svg viewBox="0 0 100 100">
+                                <rect class="lock-body" x="30" y="50" width="40" height="35" rx="4"/>
+                                <path class="lock-shackle" d="M35 50 L35 35 Q35 20 50 20 Q65 20 65 35 L65 50" fill="none" stroke-width="6"/>
+                                <circle class="lock-keyhole" cx="50" cy="67" r="5"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"Decision made."</p>
+                </div>
+            </div>
+            <span class="section-number">20</span>
+        </section>
+
+        <!-- Section 21: NOSTALGIA — The Rememberer -->
+        <section class="mood-section" data-section="20" data-mood="nostalgia" style="--bg-color: #111111;">
+            <span class="mood-label">Nostalgia</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="110" y="60" width="50" height="60" rx="2" opacity="0.4"/>
+                        <rect x="115" y="65" width="40" height="50" rx="1" opacity="0.3"/>
+                        <circle cx="80" cy="120" r="22"/>
+                        <circle cx="85" cy="118" r="3"/>
+                        <circle cx="86" cy="117" r="1" fill="#ffffff"/>
+                        <path d="M75 130 Q80 133 85 130"/>
+                        <path d="M80 142 L80 200"/>
+                        <path d="M80 155 Q60 160 55 175"/>
+                        <path d="M80 160 Q100 155 110 140"/>
+                        <path d="M80 200 L65 260"/>
+                        <path d="M80 200 L95 260"/>
+                        <path d="M65 260 L55 265"/>
+                        <path d="M95 260 L105 265"/>
+                        <circle cx="135" cy="85" r="10" opacity="0.5"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-nostalgia" aria-hidden="true">
+                        <div class="fade-circles">
+                            <span class="fade-circle"></span>
+                            <span class="fade-circle"></span>
+                            <span class="fade-circle"></span>
+                            <span class="fade-circle"></span>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"Echoes of before."</p>
+                </div>
+            </div>
+            <span class="section-number">21</span>
+        </section>
+
+        <!-- Section 22: RESTLESSNESS — The Tapper -->
+        <section class="mood-section" data-section="21" data-mood="restlessness" style="--bg-color: #151515;">
+            <span class="mood-label">Restlessness</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M40 200 L160 200" opacity="0.3"/>
+                        <circle cx="100" cy="100" r="20"/>
+                        <circle cx="95" cy="98" r="2" fill="#ffffff"/>
+                        <circle cx="105" cy="98" r="2" fill="#ffffff"/>
+                        <path d="M95 108 Q100 106 105 108"/>
+                        <path d="M100 120 L100 170"/>
+                        <path d="M100 135 Q80 140 70 155"/>
+                        <path d="M100 135 Q120 140 130 155"/>
+                        <path d="M100 170 L90 200"/>
+                        <path d="M100 170 L110 200"/>
+                        <path d="M90 200 L85 230"/>
+                        <path d="M110 200 L115 230"/>
+                        <path d="M85 230 L80 235 M85 230 L90 235"/>
+                        <path d="M115 230 L110 235 M115 230 L120 235"/>
+                        <path d="M75 235 L80 240" opacity="0.4"/>
+                        <path d="M125 235 L120 240" opacity="0.4"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-restlessness" aria-hidden="true">
+                        <div class="tap-dots">
+                            <span class="tap-dot"></span>
+                            <span class="tap-dot"></span>
+                            <span class="tap-dot"></span>
+                            <span class="tap-dot"></span>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"Tap. Tap. Tap."</p>
+                </div>
+            </div>
+            <span class="section-number">22</span>
+        </section>
+
+        <!-- Section 23: ACCEPTANCE — The Opener -->
+        <section class="mood-section" data-section="22" data-mood="acceptance" style="--bg-color: #0c0c0c;">
+            <span class="mood-label">Acceptance</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="100" cy="90" r="22"/>
+                        <path d="M92 88 Q97 85 102 88"/>
+                        <path d="M98 88 Q103 85 108 88"/>
+                        <path d="M93 100 Q100 105 107 100"/>
+                        <path d="M100 112 L100 175"/>
+                        <path d="M100 130 Q60 120 40 140"/>
+                        <path d="M100 130 Q140 120 160 140"/>
+                        <path d="M40 140 L30 145"/>
+                        <path d="M160 140 L170 145"/>
+                        <path d="M30 145 L25 140 M30 145 L25 150"/>
+                        <path d="M170 145 L175 140 M170 145 L175 150"/>
+                        <path d="M100 175 L85 250"/>
+                        <path d="M100 175 L115 250"/>
+                        <path d="M85 250 L80 260"/>
+                        <path d="M115 250 L120 260"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-acceptance" aria-hidden="true">
+                        <div class="unfold-loader">
+                            <span class="unfold-panel unfold-left"></span>
+                            <span class="unfold-panel unfold-right"></span>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"Open to what comes."</p>
+                </div>
+            </div>
+            <span class="section-number">23</span>
+        </section>
+
+        <!-- Section 24: COMPLETION — The Whole -->
+        <section class="mood-section" data-section="23" data-mood="completion" style="--bg-color: #0a0a0a;">
+            <span class="mood-label">Completion</span>
+            <div class="mood-content">
+                <div class="illustration-container">
+                    <svg class="illustration" viewBox="0 0 200 300" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="100" cy="150" r="60" stroke-width="2" opacity="0.3"/>
+                        <circle cx="100" cy="130" r="22"/>
+                        <path d="M92 128 Q97 125 102 128"/>
+                        <path d="M98 128 Q103 125 108 128"/>
+                        <path d="M93 140 Q100 146 107 140"/>
+                        <path d="M100 152 L100 190"/>
+                        <path d="M100 165 Q75 170 65 185"/>
+                        <path d="M100 165 Q125 170 135 185"/>
+                        <path d="M65 185 L55 190"/>
+                        <path d="M135 185 L145 190"/>
+                        <path d="M100 190 L90 220"/>
+                        <path d="M100 190 L110 220"/>
+                        <circle cx="100" cy="150" r="80" stroke-dasharray="4 8" opacity="0.2"/>
+                    </svg>
+                </div>
+                <div class="loader-container">
+                    <div class="loader loader-completion" aria-hidden="true">
+                        <div class="circle-complete">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="complete-track" cx="50" cy="50" r="40" fill="none"/>
+                                <circle class="complete-fill" cx="50" cy="50" r="40" fill="none"/>
+                                <circle class="complete-dot" cx="50" cy="10" r="4" fill="#ffffff"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="mood-copy">"Full circle."</p>
+                </div>
+            </div>
+            <span class="section-number">24</span>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-quote">"Waiting is the canvas. Motion is the brush."</p>
+            <p class="footer-credit">Moodful Loaders — Twenty-four meditations on digital patience</p>
+        </footer>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

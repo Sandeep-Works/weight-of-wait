@@ -1,0 +1,1640 @@
+/* ============================================
+   MOODFUL LOADERS — Design System & Styles
+   24 Hours. 24 Moods. 24 Loading States.
+   ============================================ */
+
+/* CSS Custom Properties */
+:root {
+    /* Typography */
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Outfit', -apple-system, sans-serif;
+    
+    /* Colors */
+    --color-text-primary: #f5f5f5;
+    --color-text-secondary: #e8e8e8;
+    --color-accent: #ffffff;
+    --color-muted: #666666;
+    
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+    
+    /* Transitions */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --duration-reveal: 600ms;
+}
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: var(--color-text-primary);
+    background-color: #0d0d0d;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   Page Container
+   ============================================ */
+.page-container {
+    width: 100%;
+}
+
+/* ============================================
+   Scroll Indicator
+   ============================================ */
+.scroll-indicator {
+    position: fixed;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.scroll-indicator.visible {
+    opacity: 1;
+}
+
+.scroll-track {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.scroll-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.scroll-dot:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.scroll-dot.active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 100%);
+    scroll-snap-align: start;
+    position: relative;
+}
+
+.hero-content {
+    text-align: center;
+    padding: var(--space-md);
+    max-width: 800px;
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-sm);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s var(--ease-out-expo) 0.2s forwards;
+}
+
+.hero-title .weight-bold {
+    font-weight: 600;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--color-text-secondary);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s var(--ease-out-expo) 0.5s forwards;
+}
+
+.scroll-cue {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: fadeInUp 1s var(--ease-out-expo) 1s forwards;
+}
+
+.scroll-cue svg {
+    color: var(--color-text-secondary);
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   Mood Sections
+   ============================================ */
+.mood-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color, #0d0d0d);
+    scroll-snap-align: start;
+    position: relative;
+    padding: var(--space-lg) var(--space-md);
+    overflow: hidden;
+}
+
+/* Grain texture overlay for Anxiety section */
+.mood-section[data-mood="anxiety"]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+.mood-label {
+    position: absolute;
+    top: var(--space-md);
+    left: var(--space-md);
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-secondary);
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all var(--duration-reveal) var(--ease-out-expo);
+    transition-delay: 200ms;
+}
+
+.mood-section.in-view .mood-label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.section-number {
+    position: absolute;
+    bottom: var(--space-md);
+    right: var(--space-md);
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.05);
+    line-height: 1;
+    pointer-events: none;
+}
+
+.mood-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+    max-width: 1200px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: all var(--duration-reveal) var(--ease-out-expo);
+}
+
+.mood-section.in-view .mood-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Alternate layout direction */
+.mood-section:nth-child(odd) .mood-content {
+    flex-direction: row;
+}
+
+.mood-section:nth-child(even) .mood-content {
+    flex-direction: row-reverse;
+}
+
+/* ============================================
+   Illustrations
+   ============================================ */
+.illustration-container {
+    flex: 0 0 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.illustration {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    max-height: 280px;
+}
+
+/* ============================================
+   Loader Container
+   ============================================ */
+.loader-container {
+    flex: 0 0 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.loader {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mood-copy {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--color-text-secondary);
+    text-align: center;
+    letter-spacing: 0.01em;
+}
+
+/* ============================================
+   LOADER ANIMATIONS — Original 8
+   ============================================ */
+
+/* --- 1. PATIENCE: Breathing Ring --- */
+.loader-patience svg {
+    width: 100%;
+    height: 100%;
+}
+
+.breathing-ring {
+    fill: none;
+    stroke: var(--color-accent);
+    stroke-width: 2;
+    stroke-dasharray: 251;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+}
+
+.mood-section.in-view .breathing-ring {
+    animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* --- 2. ANTICIPATION: Bouncing Dots --- */
+.loader-anticipation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.bounce-dot {
+    width: 14px;
+    height: 14px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.mood-section.in-view .bounce-dot {
+    animation: bounceDot 1s ease-in-out infinite;
+}
+
+.mood-section.in-view .bounce-dot:nth-child(1) { animation-delay: 0ms; }
+.mood-section.in-view .bounce-dot:nth-child(2) { animation-delay: 160ms; }
+.mood-section.in-view .bounce-dot:nth-child(3) { animation-delay: 320ms; }
+
+@keyframes bounceDot {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* --- 3. CURIOSITY: Rotating Magnifying Glass --- */
+.loader-curiosity svg {
+    width: 80px;
+    height: 80px;
+    stroke: var(--color-accent);
+    stroke-width: 3;
+}
+
+.mood-section.in-view .loader-curiosity svg {
+    animation: wobbleRotate 1.8s ease-in-out infinite;
+}
+
+@keyframes wobbleRotate {
+    0% { transform: rotate(0deg); }
+    5% { transform: rotate(10deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- 4. BOREDOM: Sisyphean Bar --- */
+.loader-boredom {
+    width: 160px;
+    height: 120px;
+}
+
+.sisyphean-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.sisyphean-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--color-accent);
+    border-radius: 2px;
+}
+
+.mood-section.in-view .sisyphean-fill {
+    animation: sisyphus 6s ease infinite;
+}
+
+@keyframes sisyphus {
+    0% { width: 0%; }
+    40% { width: 85%; }
+    50% { width: 85%; }
+    60% { width: 40%; }
+    70% { width: 40%; }
+    85% { width: 70%; }
+    95% { width: 70%; }
+    100% { width: 0%; }
+}
+
+/* --- 5. TRUST: Stacking Blocks --- */
+.loader-trust {
+    width: 120px;
+    height: 100px;
+}
+
+.stacking-blocks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+.block {
+    width: 30px;
+    height: 30px;
+    background: var(--color-accent);
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.mood-section.in-view .block {
+    animation: stackBlock 3s ease-in-out infinite;
+}
+
+.mood-section.in-view .block-1 { animation-delay: 0ms; }
+.mood-section.in-view .block-2 { animation-delay: 400ms; }
+.mood-section.in-view .block-3 { animation-delay: 800ms; }
+.mood-section.in-view .block-4 { animation-delay: 1200ms; }
+
+@keyframes stackBlock {
+    0%, 10% {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    20%, 70% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    85%, 100% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+}
+
+/* --- 6. ANXIETY: Jittery Cursor --- */
+.loader-anxiety {
+    width: 60px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jittery-cursor {
+    width: 3px;
+    height: 40px;
+    background: var(--color-accent);
+}
+
+.mood-section.in-view .jittery-cursor {
+    animation: jitterBlink 2s step-end infinite;
+}
+
+@keyframes jitterBlink {
+    0%, 10% { opacity: 1; }
+    11%, 20% { opacity: 0; }
+    21%, 30% { opacity: 1; }
+    31%, 35% { opacity: 0; }
+    36%, 38% { opacity: 1; }
+    39%, 41% { opacity: 0; }
+    42%, 50% { opacity: 1; }
+    51%, 60% { opacity: 0; }
+    61%, 70% { opacity: 1; }
+    71%, 75% { opacity: 0; }
+    76%, 78% { opacity: 1; }
+    79%, 81% { opacity: 0; }
+    82%, 90% { opacity: 1; }
+    91%, 100% { opacity: 0; }
+}
+
+/* --- 7. WONDER: Particle Scatter --- */
+.loader-wonder {
+    width: 120px;
+    height: 120px;
+    position: relative;
+}
+
+.particle-scatter {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.mood-section.in-view .particle {
+    animation: scatterPulse 5s ease-in-out infinite;
+}
+
+.particle:nth-child(1) { --angle: 0deg; --distance: 50px; animation-delay: 0ms; }
+.particle:nth-child(2) { --angle: 30deg; --distance: 45px; animation-delay: 400ms; }
+.particle:nth-child(3) { --angle: 60deg; --distance: 55px; animation-delay: 800ms; }
+.particle:nth-child(4) { --angle: 90deg; --distance: 48px; animation-delay: 1200ms; }
+.particle:nth-child(5) { --angle: 120deg; --distance: 52px; animation-delay: 1600ms; }
+.particle:nth-child(6) { --angle: 150deg; --distance: 46px; animation-delay: 2000ms; }
+.particle:nth-child(7) { --angle: 180deg; --distance: 50px; animation-delay: 2400ms; }
+.particle:nth-child(8) { --angle: 210deg; --distance: 54px; animation-delay: 2800ms; }
+.particle:nth-child(9) { --angle: 240deg; --distance: 47px; animation-delay: 3200ms; }
+.particle:nth-child(10) { --angle: 270deg; --distance: 51px; animation-delay: 3600ms; }
+.particle:nth-child(11) { --angle: 300deg; --distance: 49px; animation-delay: 4000ms; }
+.particle:nth-child(12) { --angle: 330deg; --distance: 53px; animation-delay: 4400ms; }
+
+@keyframes scatterPulse {
+    0% {
+        transform: translate(-50%, -50%) rotate(var(--angle)) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--distance));
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(var(--angle)) translateX(0);
+        opacity: 0;
+    }
+}
+
+/* --- 8. RELIEF: Checkmark Draw --- */
+.loader-relief svg {
+    width: 100px;
+    height: 100px;
+}
+
+.checkmark {
+    stroke: var(--color-accent);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 80;
+    stroke-dashoffset: 80;
+}
+
+.glow-ring {
+    stroke: var(--color-accent);
+    opacity: 0;
+}
+
+.mood-section.in-view .checkmark {
+    animation: drawCheck 1.5s ease-out forwards, checkLoop 4s ease-in-out 1.5s infinite;
+}
+
+.mood-section.in-view .glow-ring {
+    animation: glowPulse 4s ease-in-out 1s infinite;
+}
+
+@keyframes drawCheck {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes checkLoop {
+    0%, 70% {
+        stroke-dashoffset: 0;
+    }
+    85%, 100% {
+        stroke-dashoffset: 80;
+    }
+}
+
+@keyframes glowPulse {
+    0%, 60% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    70% {
+        opacity: 0.5;
+        transform: scale(1.05);
+    }
+    80%, 100% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+}
+
+/* ============================================
+   LOADER ANIMATIONS — New 16 Loaders
+   ============================================ */
+
+/* --- 9. FOCUS: Netflix-style Spinner --- */
+.loader-focus {
+    width: 100px;
+    height: 100px;
+}
+
+.netflix-spinner {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.spinner-arc {
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-top-color: var(--color-accent);
+    border-right-color: var(--color-accent);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.mood-section.in-view .spinner-arc {
+    animation: netflixSpin 1s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+@keyframes netflixSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- 10. DETERMINATION: Climbing Dots --- */
+.loader-determination {
+    width: 120px;
+    height: 60px;
+}
+
+.climbing-dots {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.climb-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.mood-section.in-view .climb-dot {
+    animation: climbForward 2s ease-in-out infinite;
+}
+
+.mood-section.in-view .climb-dot:nth-child(1) { animation-delay: 0ms; }
+.mood-section.in-view .climb-dot:nth-child(2) { animation-delay: 150ms; }
+.mood-section.in-view .climb-dot:nth-child(3) { animation-delay: 300ms; }
+.mood-section.in-view .climb-dot:nth-child(4) { animation-delay: 450ms; }
+.mood-section.in-view .climb-dot:nth-child(5) { animation-delay: 600ms; }
+
+@keyframes climbForward {
+    0%, 100% { opacity: 0.3; transform: translateX(0); }
+    50% { opacity: 1; transform: translateX(10px); }
+}
+
+/* --- 11. HOPE: Growing Stem --- */
+.loader-hope {
+    width: 80px;
+    height: 120px;
+}
+
+.growing-line {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.grow-stem {
+    width: 2px;
+    height: 0;
+    background: var(--color-accent);
+    position: absolute;
+    bottom: 20px;
+}
+
+.mood-section.in-view .grow-stem {
+    animation: growStem 3s ease-out infinite;
+}
+
+.grow-leaf {
+    width: 20px;
+    height: 10px;
+    border: 2px solid var(--color-accent);
+    border-radius: 50% 50% 50% 50% / 0% 0% 100% 100%;
+    position: absolute;
+    opacity: 0;
+    bottom: 60px;
+}
+
+.grow-leaf-1 {
+    left: 50%;
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+}
+
+.grow-leaf-2 {
+    right: 50%;
+    transform: rotate(45deg);
+    transform-origin: bottom right;
+}
+
+.mood-section.in-view .grow-leaf-1 {
+    animation: growLeaf1 3s ease-out infinite;
+}
+
+.mood-section.in-view .grow-leaf-2 {
+    animation: growLeaf2 3s ease-out infinite;
+}
+
+@keyframes growStem {
+    0%, 10% { height: 0; }
+    50%, 80% { height: 60px; }
+    100% { height: 0; }
+}
+
+@keyframes growLeaf1 {
+    0%, 40% { opacity: 0; transform: rotate(-45deg) scale(0); }
+    60%, 80% { opacity: 1; transform: rotate(-45deg) scale(1); }
+    100% { opacity: 0; transform: rotate(-45deg) scale(0); }
+}
+
+@keyframes growLeaf2 {
+    0%, 45% { opacity: 0; transform: rotate(45deg) scale(0); }
+    65%, 80% { opacity: 1; transform: rotate(45deg) scale(1); }
+    100% { opacity: 0; transform: rotate(45deg) scale(0); }
+}
+
+/* --- 12. URGENCY: Speed Bars --- */
+.loader-urgency {
+    width: 100px;
+    height: 60px;
+}
+
+.speed-bars {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+}
+
+.speed-bar {
+    width: 4px;
+    height: 30px;
+    background: var(--color-accent);
+    border-radius: 2px;
+}
+
+.mood-section.in-view .speed-bar {
+    animation: speedPulse 0.6s ease-in-out infinite;
+}
+
+.mood-section.in-view .speed-bar:nth-child(1) { animation-delay: 0ms; height: 20px; }
+.mood-section.in-view .speed-bar:nth-child(2) { animation-delay: 80ms; height: 35px; }
+.mood-section.in-view .speed-bar:nth-child(3) { animation-delay: 160ms; height: 50px; }
+.mood-section.in-view .speed-bar:nth-child(4) { animation-delay: 240ms; height: 35px; }
+.mood-section.in-view .speed-bar:nth-child(5) { animation-delay: 320ms; height: 20px; }
+
+@keyframes speedPulse {
+    0%, 100% { transform: scaleY(1); opacity: 0.5; }
+    50% { transform: scaleY(1.5); opacity: 1; }
+}
+
+/* --- 13. SERENITY: Floating Orbs --- */
+.loader-serenity {
+    width: 120px;
+    height: 80px;
+}
+
+.floating-orbs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    height: 100%;
+}
+
+.orb {
+    width: 16px;
+    height: 16px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.mood-section.in-view .orb {
+    animation: floatOrb 3s ease-in-out infinite;
+}
+
+.mood-section.in-view .orb:nth-child(1) { animation-delay: 0ms; }
+.mood-section.in-view .orb:nth-child(2) { animation-delay: 500ms; }
+.mood-section.in-view .orb:nth-child(3) { animation-delay: 1000ms; }
+
+@keyframes floatOrb {
+    0%, 100% { transform: translateY(0); opacity: 0.4; }
+    50% { transform: translateY(-15px); opacity: 0.9; }
+}
+
+/* --- 14. CONFUSION: Maze Path --- */
+.loader-confusion {
+    width: 100px;
+    height: 100px;
+}
+
+.maze-spinner svg {
+    width: 100%;
+    height: 100%;
+}
+
+.maze-path {
+    stroke: rgba(255, 255, 255, 0.2);
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.maze-dot {
+    fill: var(--color-accent);
+}
+
+.mood-section.in-view .maze-dot {
+    animation: mazePath 4s ease-in-out infinite;
+}
+
+@keyframes mazePath {
+    0% { transform: translate(0, 0); }
+    12.5% { transform: translate(0, 20px); }
+    25% { transform: translate(-20px, 20px); }
+    37.5% { transform: translate(-20px, 40px); }
+    50% { transform: translate(0, 40px); }
+    62.5% { transform: translate(0, 60px); }
+    75% { transform: translate(20px, 60px); }
+    87.5% { transform: translate(20px, 40px); }
+    100% { transform: translate(40px, 40px); }
+}
+
+/* --- 15. EXCITEMENT: Burst Ring --- */
+.loader-excitement {
+    width: 120px;
+    height: 120px;
+    position: relative;
+}
+
+.burst-ring {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.burst {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mood-section.in-view .burst {
+    animation: burstOut 1.5s ease-out infinite;
+}
+
+.burst:nth-child(1) { --burst-angle: 0deg; animation-delay: 0ms; }
+.burst:nth-child(2) { --burst-angle: 45deg; animation-delay: 100ms; }
+.burst:nth-child(3) { --burst-angle: 90deg; animation-delay: 200ms; }
+.burst:nth-child(4) { --burst-angle: 135deg; animation-delay: 300ms; }
+.burst:nth-child(5) { --burst-angle: 180deg; animation-delay: 400ms; }
+.burst:nth-child(6) { --burst-angle: 225deg; animation-delay: 500ms; }
+.burst:nth-child(7) { --burst-angle: 270deg; animation-delay: 600ms; }
+.burst:nth-child(8) { --burst-angle: 315deg; animation-delay: 700ms; }
+
+@keyframes burstOut {
+    0% {
+        transform: translate(-50%, -50%) rotate(var(--burst-angle)) translateX(0);
+        opacity: 1;
+        width: 8px;
+        height: 8px;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(var(--burst-angle)) translateX(50px);
+        opacity: 0;
+        width: 4px;
+        height: 4px;
+    }
+}
+
+/* --- 16. MELANCHOLY: Drip Loader --- */
+.loader-melancholy {
+    width: 60px;
+    height: 100px;
+}
+
+.drip-loader {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.drip-loader::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.drip {
+    position: absolute;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.mood-section.in-view .drip {
+    animation: dripFall 2.5s ease-in infinite;
+}
+
+@keyframes dripFall {
+    0% { top: 15px; opacity: 0; transform: scale(0.5); }
+    10% { opacity: 1; transform: scale(1); }
+    90% { opacity: 0.5; }
+    100% { top: 90px; opacity: 0; transform: scale(0.3); }
+}
+
+/* --- 17. PERSISTENCE: Push Block --- */
+.loader-persistence {
+    width: 140px;
+    height: 60px;
+}
+
+.push-bar {
+    width: 100%;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.push-block {
+    width: 30px;
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: 4px;
+    position: absolute;
+    left: 0;
+}
+
+.mood-section.in-view .push-block {
+    animation: pushForward 2s ease-in-out infinite;
+}
+
+@keyframes pushForward {
+    0%, 100% { left: 0; }
+    45%, 55% { left: calc(100% - 30px); }
+}
+
+/* --- 18. FLOW: Wave Bars --- */
+.loader-flow {
+    width: 100px;
+    height: 60px;
+}
+
+.wave-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 100%;
+}
+
+.wave-bar {
+    width: 4px;
+    height: 20px;
+    background: var(--color-accent);
+    border-radius: 2px;
+}
+
+.mood-section.in-view .wave-bar {
+    animation: waveFlow 1.2s ease-in-out infinite;
+}
+
+.mood-section.in-view .wave-bar:nth-child(1) { animation-delay: 0ms; }
+.mood-section.in-view .wave-bar:nth-child(2) { animation-delay: 100ms; }
+.mood-section.in-view .wave-bar:nth-child(3) { animation-delay: 200ms; }
+.mood-section.in-view .wave-bar:nth-child(4) { animation-delay: 300ms; }
+.mood-section.in-view .wave-bar:nth-child(5) { animation-delay: 400ms; }
+.mood-section.in-view .wave-bar:nth-child(6) { animation-delay: 500ms; }
+.mood-section.in-view .wave-bar:nth-child(7) { animation-delay: 600ms; }
+
+@keyframes waveFlow {
+    0%, 100% { height: 20px; opacity: 0.5; }
+    50% { height: 50px; opacity: 1; }
+}
+
+/* --- 19. DOUBT: Pendulum --- */
+.loader-doubt {
+    width: 100px;
+    height: 100px;
+}
+
+.pendulum {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.pendulum::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.pendulum-arm {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    width: 2px;
+    height: 60px;
+    background: var(--color-accent);
+    transform-origin: top center;
+    transform: translateX(-50%);
+}
+
+.mood-section.in-view .pendulum-arm {
+    animation: pendulumSwing 2s ease-in-out infinite;
+}
+
+.pendulum-ball {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes pendulumSwing {
+    0%, 100% { transform: translateX(-50%) rotate(-30deg); }
+    50% { transform: translateX(-50%) rotate(30deg); }
+}
+
+/* --- 20. RESOLVE: Lock Loader --- */
+.loader-resolve {
+    width: 100px;
+    height: 100px;
+}
+
+.lock-loader svg {
+    width: 100%;
+    height: 100%;
+}
+
+.lock-body {
+    fill: none;
+    stroke: var(--color-accent);
+    stroke-width: 3;
+}
+
+.lock-shackle {
+    stroke: var(--color-accent);
+    transform-origin: 50px 50px;
+}
+
+.mood-section.in-view .lock-shackle {
+    animation: lockClose 2s ease-in-out infinite;
+}
+
+.lock-keyhole {
+    fill: var(--color-accent);
+}
+
+@keyframes lockClose {
+    0%, 40% { transform: translateY(-10px); }
+    50%, 100% { transform: translateY(0); }
+}
+
+/* --- 21. NOSTALGIA: Fading Circles --- */
+.loader-nostalgia {
+    width: 120px;
+    height: 80px;
+}
+
+.fade-circles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 100%;
+}
+
+.fade-circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.mood-section.in-view .fade-circle {
+    animation: fadeMemory 3s ease-in-out infinite;
+}
+
+.mood-section.in-view .fade-circle:nth-child(1) { animation-delay: 0ms; }
+.mood-section.in-view .fade-circle:nth-child(2) { animation-delay: 400ms; }
+.mood-section.in-view .fade-circle:nth-child(3) { animation-delay: 800ms; }
+.mood-section.in-view .fade-circle:nth-child(4) { animation-delay: 1200ms; }
+
+@keyframes fadeMemory {
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
+    50% { opacity: 0.8; transform: scale(1); }
+}
+
+/* --- 22. RESTLESSNESS: Tapping Dots --- */
+.loader-restlessness {
+    width: 100px;
+    height: 60px;
+}
+
+.tap-dots {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 8px;
+    height: 100%;
+    padding-bottom: 10px;
+}
+
+.tap-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--color-accent);
+    border-radius: 50%;
+}
+
+.mood-section.in-view .tap-dot {
+    animation: tapTap 0.8s ease-in-out infinite;
+}
+
+.mood-section.in-view .tap-dot:nth-child(1) { animation-delay: 0ms; }
+.mood-section.in-view .tap-dot:nth-child(2) { animation-delay: 100ms; }
+.mood-section.in-view .tap-dot:nth-child(3) { animation-delay: 200ms; }
+.mood-section.in-view .tap-dot:nth-child(4) { animation-delay: 300ms; }
+
+@keyframes tapTap {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+    30% { transform: translateY(-15px); opacity: 1; }
+}
+
+/* --- 23. ACCEPTANCE: Unfolding Panels --- */
+.loader-acceptance {
+    width: 100px;
+    height: 80px;
+}
+
+.unfold-loader {
+    width: 80px;
+    height: 60px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.unfold-panel {
+    width: 30px;
+    height: 60px;
+    background: var(--color-accent);
+    position: absolute;
+    top: 0;
+}
+
+.unfold-left {
+    left: 50%;
+    transform-origin: left center;
+}
+
+.unfold-right {
+    right: 50%;
+    transform-origin: right center;
+}
+
+.mood-section.in-view .unfold-left {
+    animation: unfoldLeft 2.5s ease-in-out infinite;
+}
+
+.mood-section.in-view .unfold-right {
+    animation: unfoldRight 2.5s ease-in-out infinite;
+}
+
+@keyframes unfoldLeft {
+    0%, 20% { transform: rotateY(0deg); }
+    50%, 70% { transform: rotateY(-90deg); }
+    100% { transform: rotateY(0deg); }
+}
+
+@keyframes unfoldRight {
+    0%, 20% { transform: rotateY(0deg); }
+    50%, 70% { transform: rotateY(90deg); }
+    100% { transform: rotateY(0deg); }
+}
+
+/* --- 24. COMPLETION: Circle Complete --- */
+.loader-completion {
+    width: 100px;
+    height: 100px;
+}
+
+.circle-complete svg {
+    width: 100%;
+    height: 100%;
+}
+
+.complete-track {
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 3;
+}
+
+.complete-fill {
+    stroke: var(--color-accent);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 251;
+    stroke-dashoffset: 251;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+.mood-section.in-view .complete-fill {
+    animation: completeFill 3s ease-in-out infinite;
+}
+
+.complete-dot {
+    fill: var(--color-accent);
+}
+
+.mood-section.in-view .complete-dot {
+    animation: completeDot 3s ease-in-out infinite;
+}
+
+@keyframes completeFill {
+    0% { stroke-dashoffset: 251; }
+    50%, 60% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 251; }
+}
+
+@keyframes completeDot {
+    0% { transform: rotate(0deg); transform-origin: 50px 50px; }
+    50%, 60% { transform: rotate(360deg); transform-origin: 50px 50px; }
+    100% { transform: rotate(360deg); transform-origin: 50px 50px; }
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+    padding: var(--space-lg);
+    text-align: center;
+    scroll-snap-align: start;
+}
+
+.footer-quote {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-style: italic;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+    max-width: 600px;
+}
+
+.footer-credit {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    letter-spacing: 0.05em;
+}
+
+/* ============================================
+   Responsive Breakpoints
+   ============================================ */
+
+/* Mobile: < 480px */
+@media (max-width: 479px) {
+    .illustration-container {
+        display: none;
+    }
+    
+    .mood-content {
+        flex-direction: column !important;
+    }
+    
+    .loader-container {
+        flex: 1;
+    }
+    
+    .mood-label {
+        font-size: 0.9rem;
+    }
+    
+    .section-number {
+        font-size: 2.5rem;
+    }
+    
+    .scroll-indicator {
+        right: 0.75rem;
+    }
+    
+    .scroll-dot {
+        width: 4px;
+        height: 4px;
+    }
+    
+    .scroll-track {
+        gap: 0.35rem;
+    }
+}
+
+/* Small tablets: 480px – 768px */
+@media (min-width: 480px) and (max-width: 767px) {
+    .mood-content {
+        flex-direction: column !important;
+        gap: var(--space-lg);
+    }
+    
+    .illustration-container {
+        flex: 0 0 auto;
+    }
+    
+    .loader-container {
+        flex: 0 0 auto;
+    }
+    
+    .illustration {
+        max-width: 160px;
+        max-height: 220px;
+    }
+    
+    .scroll-dot {
+        width: 5px;
+        height: 5px;
+    }
+    
+    .scroll-track {
+        gap: 0.4rem;
+    }
+}
+
+/* Tablets: 768px – 1200px */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .illustration-container {
+        flex: 0 0 40%;
+    }
+    
+    .loader-container {
+        flex: 0 0 60%;
+    }
+    
+    .illustration {
+        max-width: 180px;
+    }
+}
+
+/* Desktop: > 1200px */
+@media (min-width: 1200px) {
+    .mood-content {
+        gap: var(--space-xl);
+        padding: 0 var(--space-lg);
+    }
+    
+    .illustration {
+        max-width: 220px;
+        max-height: 300px;
+    }
+    
+    .loader {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+        scroll-snap-type: none;
+    }
+    
+    .hero-title,
+    .hero-subtitle,
+    .scroll-cue {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+    
+    .scroll-cue svg {
+        animation: none;
+    }
+    
+    .mood-content {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+    
+    .mood-label {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+    
+    /* Static loader states for all 24 loaders */
+    .breathing-ring,
+    .bounce-dot,
+    .loader-curiosity svg,
+    .sisyphean-fill,
+    .block,
+    .jittery-cursor,
+    .particle,
+    .checkmark,
+    .glow-ring,
+    .spinner-arc,
+    .climb-dot,
+    .grow-stem,
+    .grow-leaf,
+    .speed-bar,
+    .orb,
+    .maze-dot,
+    .burst,
+    .drip,
+    .push-block,
+    .wave-bar,
+    .pendulum-arm,
+    .lock-shackle,
+    .fade-circle,
+    .tap-dot,
+    .unfold-left,
+    .unfold-right,
+    .complete-fill,
+    .complete-dot {
+        animation: none !important;
+    }
+    
+    /* Static states */
+    .breathing-ring {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+    
+    .sisyphean-fill {
+        width: 60%;
+    }
+    
+    .block {
+        opacity: 1;
+        transform: none;
+    }
+    
+    .jittery-cursor {
+        opacity: 1;
+    }
+    
+    .particle {
+        opacity: 0.6;
+    }
+    
+    .particle:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg) translateX(30px); }
+    .particle:nth-child(2) { transform: translate(-50%, -50%) rotate(30deg) translateX(30px); }
+    .particle:nth-child(3) { transform: translate(-50%, -50%) rotate(60deg) translateX(30px); }
+    .particle:nth-child(4) { transform: translate(-50%, -50%) rotate(90deg) translateX(30px); }
+    .particle:nth-child(5) { transform: translate(-50%, -50%) rotate(120deg) translateX(30px); }
+    .particle:nth-child(6) { transform: translate(-50%, -50%) rotate(150deg) translateX(30px); }
+    .particle:nth-child(7) { transform: translate(-50%, -50%) rotate(180deg) translateX(30px); }
+    .particle:nth-child(8) { transform: translate(-50%, -50%) rotate(210deg) translateX(30px); }
+    .particle:nth-child(9) { transform: translate(-50%, -50%) rotate(240deg) translateX(30px); }
+    .particle:nth-child(10) { transform: translate(-50%, -50%) rotate(270deg) translateX(30px); }
+    .particle:nth-child(11) { transform: translate(-50%, -50%) rotate(300deg) translateX(30px); }
+    .particle:nth-child(12) { transform: translate(-50%, -50%) rotate(330deg) translateX(30px); }
+    
+    .checkmark {
+        stroke-dashoffset: 0;
+    }
+    
+    .glow-ring {
+        opacity: 0.3;
+    }
+    
+    .spinner-arc {
+        border-top-color: var(--color-accent);
+        border-right-color: var(--color-accent);
+    }
+    
+    .climb-dot {
+        opacity: 0.7;
+    }
+    
+    .grow-stem {
+        height: 50px;
+    }
+    
+    .grow-leaf {
+        opacity: 0.8;
+    }
+    
+    .speed-bar {
+        opacity: 0.8;
+    }
+    
+    .orb {
+        opacity: 0.7;
+    }
+    
+    .burst {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) rotate(var(--burst-angle)) translateX(25px);
+    }
+    
+    .drip {
+        opacity: 0.6;
+        top: 50px;
+    }
+    
+    .push-block {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .wave-bar {
+        height: 35px;
+        opacity: 0.8;
+    }
+    
+    .pendulum-arm {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    
+    .lock-shackle {
+        transform: translateY(0);
+    }
+    
+    .fade-circle {
+        opacity: 0.6;
+    }
+    
+    .tap-dot {
+        opacity: 0.7;
+    }
+    
+    .unfold-left,
+    .unfold-right {
+        transform: rotateY(0deg);
+    }
+    
+    .complete-fill {
+        stroke-dashoffset: 125;
+    }
+}
+
+/* ============================================
+   Focus Styles for Accessibility
+   ============================================ */
+:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+/* ============================================
+   Selection Styles
+   ============================================ */
+::selection {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--color-text-primary);
+}
